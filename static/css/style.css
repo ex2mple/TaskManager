@@ -589,7 +589,7 @@ ul.links li {
     margin-right: auto;
 }
 
-.message-box {
+.message-box, .message-box-noauthor {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -598,6 +598,10 @@ ul.links li {
     min-height: 45px;
     background-color: #FFFFFF;
     margin-top: 5px;
+}
+
+.message-box-noauthor {
+    margin-top: -17px;
 }
 
 .username {
