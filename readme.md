@@ -1,6 +1,6 @@
 # Task Manager 📝
 
----
+
 Простое веб-приложения, для распределения задач между сотрудниками, с системой аккаунтов. </br>
 Создано с помощью Flask.
 
@@ -8,15 +8,13 @@
 
 ## Installing ##
 
----
-
     git clone https://github.com/ex2mple/TaskManager.git
     pip install -r requirements.txt
 
 
 ## Preview ## 
 
----
+
 Форма регистрации и входа <br>
 ![image](preview/login.jpg "Форма входа ")
 
@@ -31,7 +29,7 @@
 
 ### Contributors 🫱🏽‍🫲🏾
 
----
+
 [@ex2mple](https://github.com/ex2mple) <br>
 [@AlexonV](https://github.com/AlexonV)
 
