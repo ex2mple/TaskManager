@@ -24,7 +24,7 @@
 **Общий чат.** Реализован на flask-socketIo <br>
 ![Чат на сайте](preview/chat.gif "Чат")
 
-### Contributors 🫱🏽‍🫲🏾
+## Contributors 🫱🏽‍🫲🏾
 
 
 [@ex2mple](https://github.com/ex2mple) <br>
