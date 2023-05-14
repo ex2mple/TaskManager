@@ -191,6 +191,13 @@ def logout():
     flash("Вы вышли из системы!")
     return redirect(url_for('login'))
 
+@app.route('/calendar', methods=['GET', 'POST'])
+@login_required
+def calendar():
+    return render_template(
+        'calendar.html', user=current_user
+    )
+
 
 if __name__ == '__main__':
     socket.run(app, debug=True, allow_unsafe_werkzeug=True)

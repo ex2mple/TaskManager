@@ -621,4 +621,24 @@ ul.links li {
 }
 
 
+/*Календарь*/
 
+.calendar_panel {
+
+    background-color: #fff;
+    border-radius: 15px;
+    min-height: 100px;
+    margin-left: 43px;
+    margin-right: 59px;
+    margin-top: 57px;
+}
+
+.calendar_month {
+    margin-left: 54;
+    margin-top: 26;
+}
+
+.calendar_year {
+    margin-left: 54;
+    margin-top: 10;
+}
