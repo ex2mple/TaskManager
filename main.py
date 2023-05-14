@@ -82,6 +82,17 @@ def handle_send_message_event(data):
     db.session.commit()
     emit('message', {'username': username, 'message': message}, broadcast=True)
 
+# socket.on('typing', function(data) {
+#   socket.broadcast.emit('typing', {username: data.username});
+# });
+
+@socket.on('typing')
+def handle_user_typing(data):
+    emit('typing', {'username': data['username']}, broadcast=True)
+
+@socket.on('stop-typing')
+def handle_user_typing():
+    emit('stop-typing', broadcast=True)
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
@@ -193,4 +204,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    socket.run(app, debug=True, allow_unsafe_werkzeug=True)
+    socket.run(app, debug=True, allow_unsafe_werkzeug=True, host="0.0.0.0", port="80")

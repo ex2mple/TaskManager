@@ -30,8 +30,9 @@
             <form id="message-form" action="{{ url_for('chat') }}" method="POST">
             {{ form.csrf_token }}
             {{ form.hidden_tag() }}
+            <span id="typing-indicator"></span>
             <div id="message-field">
-                {{ form.message(id="chat-message", placeholder="Написать сообщение...") }}
+                {{ form.message(id="message-input", placeholder="Написать сообщение...") }}
             </div>
             </form>
             </div>
@@ -41,7 +42,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="//cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <script type="text/javascript">
-
         let previousUsername = "{{ messages[-1].author.login }}";
         var current_user_login = "{{ current_user.login }}";
         $(document).ready(function() {
@@ -50,6 +50,26 @@
 
             socket.on('connect', function() {
                 socket.emit('join', {'username': '{{ current_user.login }}'});
+            });
+
+            var inputTextField = document.getElementById('message-input');
+            var timer;
+
+            inputTextField.oninput = function() {
+                socket.emit('typing', {username: '{{ current_user.login }}'});
+
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    socket.emit('stop-typing');
+                }, 2000)
+            };
+
+            socket.on('typing', function(data) {
+                $('#typing-indicator').text(data.username + ' is typing...');
+            });
+
+            socket.on('stop-typing', function() {
+                $('#typing-indicator').text('');
             });
 
             socket.on('message', function(data) {
@@ -73,15 +93,15 @@
 
             $('#message-form').submit(function(event) {
                 event.preventDefault();
-                var message = $('#chat-message').val();  // Извлекаем значение из формы
+                var message = $('#message-input').val();  // Извлекаем значение из формы
                 if (message == '') {
                     return;
                 }
                 socket.emit('send_message', {'message': message});  // Передаем сообщение на сервер
-                $('#chat-message').val('');  // Очищаем форму после отправки
+                $('#message-input').val('');  // Очищаем форму после отправки
             });
             
-            $('#chat-message').keypress(function(event) {
+            $('#message-input').keypress(function(event) {
                 if (event.which == 13) {
                 event.preventDefault();
                 $('#message-form').submit();
