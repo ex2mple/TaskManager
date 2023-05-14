@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="task_section" style="padding: 2em;">
+    <div class="task_form" style="display: table-cell; vertical-align: top;">
+      <form method="POST" action="" novalidate>
+        {{ form.csrf_token }}
+        <h2 class="task_headtext" style="margin-top: -10px;">Добавить задачу</h2>
+        <div class="task_name" style="display:block; margin-top: 2em">
+            <label class="task-form-label">{{ form.name.label }}</label>
+            {{ form.name(class="task_form_field") }}
+        </div>
+        <div class="task-field-text" style="display:block; margin-top: 2em">
+            <label class="task-form-label">{{ form.task.label }}</label>
+                {{ form.task(id="task-textarea") }}
+        </div>
+        <div class="task_deadline" style="display:block; margin-top: 2em">
+            <label class="task-form-label">{{ form.deadline.label }}</label>
+            {{ form.deadline(class="task_form_field") }}
+        </div>
+        {{ form.submit(class="btn") }}
+            <span class="task-back-btn"><a href="/">Назад</a></span>
+      </form>
+    </div>
+  </div>
+  
+{% endblock %}

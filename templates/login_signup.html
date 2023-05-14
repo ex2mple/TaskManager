@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Sen&display=swap');
+  </style>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Manager Tasks</title>
+</head>
+<body>
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+      <spam id="message">{{ message }}</spam>
+    {% endfor %}
+    <div class="autoriz_section" style="{{ '{}'.format('height: 370px') if form.action == 'Авторизация'}}">
+        <div class="nav">
+          <ul class="links">
+            <span class="btn-link" style="margin-right: 65px;"><a href="/login">Войти</a></span>
+            <span class="btn-link"><a href="/signup">Зарегистрироваться</a></span>
+          </ul>
+        </div>
+        <form method="POST" action="" class="autorization_form">
+            {{ form.csrf_token }}
+            <h2 class="autoriz_headtext">{{ form.action }}</h2>
+            {% for field in fields %}
+            <div class="autoriz_login" style="display:block; margin-top: 2em">
+                <label class="form-label">{{ field.label }}</label>
+                {{ field(class="form-field") }}
+            </div>
+            {% endfor %}
+            {% if form.remember %}
+            <div class="login-check-box">
+                {{ form.remember.label }}
+                {{ form.remember(class="check-box") }}
+            </div>
+            {% endif %}
+            {{ form.submit(class="btn") }}
+        </form>
+    </div>
+
+</body>
+</html>

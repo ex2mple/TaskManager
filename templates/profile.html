@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="section_right">
+        <div class="profile">
+                <div id="profile">
+                    <div class="image-stack">
+                        <div class="image-stack_">
+                          <img src="../static/images/first_second_name_img.png" alt="profile" class="profimg">
+                        </div>
+                     </div>
+                </div>
+                <div id="profile2" style="padding-top: 7px;">
+                    <a class="profedit" style="margin-left: 15%; font-size: 1.8em;" href="/edit_profile">Редактировать</a>
+                </div>
+        </div>
+        <div class="profile2">
+            <div>
+                <div>
+                    <ul>
+                        <li><span class="login">{{ user.surname }} {{ user.name}}</span></li>
+                        <li><span class="profile-description">мини описание</span></li>
+                    </ul>
+                </div>
+                <div class="status" style="display: inline;">
+                  <a id="online">online</a>
+                  <a id="logout" href="/logout">выход</a>
+                </div>
+                <hr style="margin-left: 2em; margin-right: 2em; margin-bottom: 1em;">
+                <div>
+                    <ul>
+                        <p>
+                          <span class="profile-description">День рождения: </span><span class="profile-description2">{{ user.birthday }}</span>
+                        </p>
+                        <p>
+                          <span class="profile-description">Семейное положение: </span><span class="profile-description2">{{ user.family_status }}</span>
+                        </p>
+                        <p>
+                          <span class="profile-description">Образование: </span><span class="profile-description2">{{ user.education }}</span>
+                        </p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
