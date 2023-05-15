@@ -71,7 +71,6 @@ db.create_all()
 def handle_message(data):
     emit('message', data, broadcast=True)
 
-
 @socket.on('send_message')
 def handle_send_message_event(data):
     message = data['message']
@@ -81,6 +80,20 @@ def handle_send_message_event(data):
     db.session.add(new_message)
     db.session.commit()
     emit('message', {'username': username, 'message': message}, broadcast=True)
+
+@socket.on('typing')
+def handle_user_typing(data):
+    emit('typing', {'username': data['username']}, broadcast=True)
+
+@socket.on('stop-typing')
+def handle_user_typing(data):
+    emit('stop-typing', {'username': data['username']}, broadcast=True)
+
+@socket.on('disconnect')
+def handle_disconnect():
+    emit('stop-typing', {'username': current_user.login}, broadcast=True)
+
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -200,4 +213,4 @@ def calendar():
 
 
 if __name__ == '__main__':
-    socket.run(app, debug=True, allow_unsafe_werkzeug=True)
+    socket.run(app, debug=True, allow_unsafe_werkzeug=True, host="0.0.0.0", port="80")
