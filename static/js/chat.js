@@ -93,7 +93,8 @@ $(document).ready(function() {
     $('#message-form').submit(function(event) {
         event.preventDefault();
         var message = $('#message-input').val();  // Извлекаем значение из формы
-        if (message == '') {
+        if (message.trim() == '') { // Если строка пустая, то ничего не делаем
+            $('#message-input').val('');
             return;
         }
         socket.emit('send_message', {'message': message});  // Передаем сообщение на сервер
