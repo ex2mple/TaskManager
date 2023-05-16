@@ -3,7 +3,14 @@
 {% block content %}
 
   <div class="section_right">
-    <h2 class="menu-item"><img src="../static/images/search.png" alt="search" align="left" width="31" height="31">search chat</h2>
+    <div class="task-top-label">
+        <box-icon name='search' class="search-icon"></box-icon>
+        <input type="text" placeholder="Искать задачу"></input>
+        <a href={{ url_for("add_task") }} class=" add-task-button">
+          <box-icon name='list-plus' class="icon"></box-icon>
+        </a>
+    </div>
+    
     <div class="table">
       {% for task in tasks %}
       <div class="outer">
@@ -16,11 +23,7 @@
       </div>
       {% endfor %}
      </div>
-    <a href={{url_for('add_task')}}>
-      <button style="font-size: 1.2em;" class="add-task-button">
-        <img src="../static/images/add.png" alt="search">
-      </button>
-    </a>
+    
   </div>
 
 {% endblock %}

@@ -11,7 +11,7 @@ header {
     position: absolute;
     width: 1454px;
     height: 1039px;
-    left: 427px;
+    left: 350px;
     top: 24px;
     font-family: "Sen", "Rubik", Arial, sans-serif;
 
@@ -26,12 +26,6 @@ header {
     background-color: #4654EB;
 }
 
-.add-task-button {
-    position: absolute;
-    left: 1360px;
-    top: 35px;
-    cursor: pointer;
-}
 
 .outer {
     display: flex;
@@ -39,7 +33,6 @@ header {
     width: 1385px;
     height: 68px;
     margin-bottom: 21px;
-    margin-right: 24px;
     margin-left: 45px;
     border-radius: 18px;
     background: linear-gradient(53deg, #81b7e2,#b3eadd);
@@ -66,7 +59,7 @@ header {
 }
 
 .table {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 
@@ -75,24 +68,23 @@ header {
 }
 
 .menu {
-    width: 20%;
+    width: 250;
     height: 100%;
 }
 
 .head {
     display: inline;
-    margin-left: 88px;
-    margin-top: 56;
+    margin-left: 30px;
 }
 
-.icon {
+.top-icon {
     height: 50px;
     width: 50px;
     background-color: #4654EB;
 	border-radius: 50%;
 }
 
-span.icon {
+span.top-icon {
     display: inline-block;
     text-align: center;
     display: table-cell;
@@ -108,15 +100,76 @@ span.headtext {
     padding-left: 15px;
 }
 
-.menu-item {
-    display: block;
-    margin-top: 67px;
-    margin-left: 88px;
-    font-size: 24px;
+.task-top-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 53px;
+    font-size: 20px;
 }
+
+.task-top-label input {
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    font-family: "Sen", "Rubik", Arial, sans-serif;
+    background-color: #F3F3FB;
+    border-bottom: solid black 1px;
+}
+
+.task-top-label .search-icon {
+    position: relative;
+    margin-left: 45px;
+    margin-right: 13px;
+    width: 25px;
+    height: 25px;
+}
+
+.add-task-button {
+    position: relative;
+    left: 1040px;
+}
+
+.menu-item {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    height: 68px;
+    margin-top: 40px;
+    margin-left: 30px;
+    font-size: 25px;
+    border-radius: 18px;
+    transition: .3s;
+    width: 350px;
+}
+
+/* background: linear-gradient(90deg, #81b7e2,); */
+
+.menu-item:hover {
+    fill: #4654EB;
+    color: #4654EB;
+    /* background: #F3F3FB; */
+}
+
+.menu-item:hover::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #4654EB;
+}
+
+
 
 .menu-item img {
     vertical-align: -10px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
 }
 
 .menu-item span {
@@ -205,7 +258,7 @@ A:active {
     text-decoration: none;
 }
 
-.chat {
+.top-label {
     display: flex;
     align-items: center;
     margin-top: 50px;
@@ -224,7 +277,7 @@ A:active {
     font-size: 23px
 }
 
-.chat .circle {
+.top-label .circle {
     margin-left: 19px;
 
 }
