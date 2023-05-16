@@ -33,16 +33,26 @@ $(document).ready(function() {
 
     // Обновить индикатор печати
     function updateTypingIndicator() {
-        var indicatorText = '';
+        var typingUsers = '';
+        var typingLabel = '';
+        var dotLabel = '';
         var typing_users_without_me = typing_users.filter(function (item) {
             return item != current_user_login;
         });
         if (typing_users_without_me.length == 1) {
-            indicatorText = typing_users_without_me.join('') + ' печатает...';
+            typingUsers = typing_users_without_me.join('');
+            typingLabel = ' печатает';
+            dotLabel = '.';
         } else if (typing_users_without_me.length > 1) {
-            indicatorText = typing_users_without_me.join(', ') + ' печатают...';
+            typingUsers = typing_users_without_me.join(', ');
+            typingLabel = ' печатают';
+            dotLabel = '.';
         }
-        $('#typing-indicator').text(indicatorText);
+        $('#typing-users').text(typingUsers);
+        $('#typing-label').text(typingLabel);
+        $('.dot').text(dotLabel);
+
+
 };
 
     inputTextField.oninput = function() {
@@ -56,11 +66,11 @@ $(document).ready(function() {
         clearTimeout(timer_typing);
         timer_typing = setTimeout(function() {
             typing = false
-        }, 2800)
+        }, 4800)
         timer = setTimeout(function() {
             typing = false;
             socket.emit('stop-typing', {username: current_user_login});
-        }, 3000)
+        }, 5000)
     };
 
     socket.on('typing', function(data) {

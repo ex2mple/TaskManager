@@ -19,6 +19,13 @@ header {
     border-radius: 66px;
 }
 
+.circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #4654EB;
+}
+
 .add-task-button {
     position: absolute;
     left: 1360px;
@@ -27,29 +34,26 @@ header {
 }
 
 .outer {
+    display: flex;
+    align-items: center;
     width: 1385px;
     height: 68px;
     margin-bottom: 21px;
     margin-right: 24px;
     margin-left: 45px;
     border-radius: 18px;
-    background-color: #FFFFFF;
-    display: flex;
+    background: linear-gradient(53deg, #81b7e2,#b3eadd);
     font-size: 23px;
-    align-items: center;
     justify-content: space-between;
 }
 
-.inner-image {
+.inner-name {
+    display: flex;
+    align-items: center;
     margin-left: 19px;
 }
 
-.inner-image img {
-    vertical-align: middle
-}
-
-.inner-image a {
-    vertical-align: middle;
+.inner-name .task-name {
     margin-left: 23px;
 }
 
@@ -137,19 +141,7 @@ h2.menu-item {
     text-align: left;
 }
 
-.chat {
-    margin-top: 50px;
-    margin-bottom: 200px;
-    margin-right: 24px;
-    margin-left: 45px;
-    
-    width: 1385px;
-    height: 68px;
-    left: 472px;
-    top: 300px;
-    background-color: #FFFFFF;
-    border-radius: 18px;
-}
+
 
 #message {
     position: absolute;
@@ -213,10 +205,31 @@ A:active {
     text-decoration: none;
 }
 
-.message img {
-    margin-top: 10px;
-    margin-right: 10px;
+.chat {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    margin-right: 24px;
+    margin-left: 45px;
+
+    width: 1385px;
+    height: 68px;
+    background-color: #FFFFFF;
+    border-radius: 18px;
 }
+
+.chat-label {
+    margin-left: 23px;
+    font-size: 23px
+}
+
+.chat .circle {
+    margin-left: 19px;
+
+}
+
+
 
 .container p, .container_lft p {
     font-size: 20px;
@@ -265,15 +278,13 @@ ul.staff_member {
             text-align: left;
     }
     ul li .content, ul li .content2 {
-            background: #FFFFFF;
-            width: 117px;
-            height: 147px;
-            margin: 20px 40px;
-            display: inline-block;
-            text-align: left;
-            border-radius: 18px;
-
-
+        background: #FFFFFF;
+        width: 117px;
+        height: 147px;
+        margin: 20px 40px;
+        display: inline-block;
+        text-align: left;
+        border-radius: 18px;
     }
 
     ul li .content2 {
@@ -563,7 +574,6 @@ ul.links li {
 }
 
 
-
 .card-body {
     display: flex;
     flex-flow: column nowrap;
@@ -587,6 +597,55 @@ ul.links li {
 
 .other-message-container {
     margin-right: auto;
+}
+
+.my-message-container div {
+    background: linear-gradient(90deg, #81b7e2,#b3eadd);
+}
+
+.other-message-container div {
+    background: linear-gradient(90deg, #81b7e2,#b3eadd);
+}
+
+#typing-indicator {
+    display: flex;
+}
+
+#typing-indicator span {
+    margin-right: 5px;
+}
+
+.dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  animation: dots-jumps .6s infinite alternate-reverse;
+}
+
+.dot1 {
+  animation-delay: 0.2s;
+}
+
+.dot2 {
+  animation-delay: 0.3s;
+}
+
+/* @keyframes dots-jumps {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+} */
+
+@keyframes dots-jumps {
+    0% {
+        color: rgba(0, 0, 0, 1);
+    }
+    100% {
+        color: rgba(0, 0, 0, 0.25);
+    }
 }
 
 .message-box, .message-box-noauthor {

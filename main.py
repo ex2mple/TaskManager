@@ -71,6 +71,7 @@ db.create_all()
 def handle_message(data):
     emit('message', data, broadcast=True)
 
+
 @socket.on('send_message')
 def handle_send_message_event(data):
     message = data['message']
@@ -81,19 +82,20 @@ def handle_send_message_event(data):
     db.session.commit()
     emit('message', {'username': username, 'message': message}, broadcast=True)
 
+
 @socket.on('typing')
 def handle_user_typing(data):
     emit('typing', {'username': data['username']}, broadcast=True)
+
 
 @socket.on('stop-typing')
 def handle_user_typing(data):
     emit('stop-typing', {'username': data['username']}, broadcast=True)
 
+
 @socket.on('disconnect')
 def handle_disconnect():
     emit('stop-typing', {'username': current_user.login}, broadcast=True)
-
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -108,7 +110,6 @@ def index():
 @app.route('/chat', methods=['GET', 'POST'])
 @login_required
 def chat():
-
     form = ChatForm()
     if form.validate_on_submit():
         message = Message()
@@ -203,6 +204,7 @@ def logout():
     logout_user()
     flash("Вы вышли из системы!")
     return redirect(url_for('login'))
+
 
 @app.route('/calendar', methods=['GET', 'POST'])
 @login_required

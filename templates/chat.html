@@ -3,7 +3,8 @@
 {% block content %}
     <div class="section_right">
         <div class="chat">
-            <h2 class="message" ><img src="../static/images/circle.png" alt="search" align="bottom" width="21" height="21" style="margin: 10px 10px;">общий чат</h2>
+            <div class="circle"></div>
+            <span class="chat-label" >общий чат</span>
         </div>
         <div class="">
             <div class="card-body">
@@ -30,7 +31,13 @@
             <form id="message-form" action="{{ url_for('chat') }}" method="POST">
             {{ form.csrf_token }}
             {{ form.hidden_tag() }}
-            <span id="typing-indicator"></span>
+            <div id="typing-indicator">
+                <span id="typing-users"></span>
+                <span id="typing-label"></span>
+                <div class="dot"></div>
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+            </div>
             <div id="message-field">
                 {{ form.message(id="message-input", placeholder="Написать сообщение...") }}
             </div>

@@ -7,8 +7,10 @@
     <div class="table">
       {% for task in tasks %}
       <div class="outer">
-          <div class="inner-image"><img src="../static/images/circle.png" alt="circle"><a>{{ task.name }}</a></div>
-<!--          <li><div class="inner-name">{{ task.name }}</div></li>-->
+          <div class="inner-name">
+              <div class="circle"></div>
+              <span class="task-name">{{ task.name }}</span>
+          </div>
           <div class="inner-text">{{ task.task_text|truncate(60) }}</div>
           <div class="inner-date">{{ task.deadline }}</div>
       </div>
