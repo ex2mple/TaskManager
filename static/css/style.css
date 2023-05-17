@@ -111,9 +111,10 @@ span.headtext {
 .task-top-label input {
     width: 250px;
     border: none;
+    outline: none;
     font-size: 20px;
     font-family: "Sen", "Rubik", Arial, sans-serif;
-    background-color: #F3F3FB;
+    background: transparent;
     border-bottom: solid black 1px;
 }
 
@@ -136,14 +137,12 @@ span.headtext {
     align-items: center;
     height: 68px;
     margin-top: 40px;
-    margin-left: 30px;
     font-size: 25px;
     border-radius: 18px;
     transition: .3s;
     width: 350px;
 }
 
-/* background: linear-gradient(90deg, #81b7e2,); */
 
 .menu-item:hover {
     fill: #4654EB;
@@ -159,12 +158,6 @@ span.headtext {
     width: 8px;
     border-radius: 50%;
     background-color: #4654EB;
-}
-
-
-
-.menu-item img {
-    vertical-align: -10px;
 }
 
 .icon {
@@ -454,7 +447,7 @@ ul.staff_member {
     padding-left: 3em;
     padding-top: 1em;
     padding-bottom: 3em;
-    background: #F3F3FB;
+    background: linear-gradient(53deg, #81b7e2,#b3eadd);
     font-family: "Sen", "Rubik", Arial, sans-serif;
     font-size: 20px;
     border-radius: 66px;

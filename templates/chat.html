@@ -45,9 +45,13 @@
             </div>
         </div>
     </div>
-    <!-- Это div нужны для передачи значений из Jinja в chat.js -->
-    <div id="current_user_login" data-value="{{ current_user.login }}"></div> 
+    <!-- Эти div нужны для передачи значений из Jinja в chat.js -->
+    <div id="current_user_login" data-value="{{ current_user.login }}"></div>
+    {% if messages|length != 0 %}
     <div id="previousUsername" data-value="{{ messages[-1].author.login }}"></div>
+    {% else %}
+    <div id="previousUsername" data-value=""></div>
+    {% endif %}
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="//cdn.socket.io/4.4.1/socket.io.min.js"></script>

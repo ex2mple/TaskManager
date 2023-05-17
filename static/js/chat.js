@@ -1,4 +1,4 @@
-let previousUsername = document.getElementById('previousUsername').getAttribute('data-value');
+var previousUsername = document.getElementById('previousUsername').getAttribute('data-value');
 var current_user_login = document.getElementById('current_user_login').getAttribute('data-value');
 $(document).ready(function() {
     $('.card-body').scrollTop($('.card-body')[0].scrollHeight);
