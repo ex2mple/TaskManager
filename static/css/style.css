@@ -1,749 +1,133 @@
-header {
-    margin-top: 24px;
-    display: inline;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Sen", "Rubik", Arial, sans-serif;
-    position: relative;
-    width: 1920px;
-    height: 1080px;
 }
 
-.section_right {
-    position: absolute;
-    width: 1454px;
-    height: 1039px;
-    left: 350px;
-    top: 24px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-
-    background: #F3F3FB;
-    border-radius: 66px;
-}
-
-.circle {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: #4654EB;
-}
-
-
-.outer {
-    display: flex;
-    align-items: center;
-    width: 1385px;
-    height: 68px;
-    margin-bottom: 21px;
-    margin-left: 45px;
-    border-radius: 18px;
-    background: linear-gradient(53deg, #81b7e2,#b3eadd);
-    font-size: 23px;
-    justify-content: space-between;
-}
-
-.inner-name {
-    display: flex;
-    align-items: center;
-    margin-left: 19px;
-}
-
-.inner-name .task-name {
-    margin-left: 23px;
-}
-
-.inner-text {
-    margin-left: 103px;
-}
-
-.inner-date {
-    margin-right: 103px;
-}
-
-.table {
-    margin-top: 100px;
-}
-
-
-#circle {
-    margin: 145px 1346px 850px 64px;
-}
-
-.menu {
-    width: 250;
+.sidebar {
+    position: fixed;
+    top: 75px;
+    left: 0;
     height: 100%;
+    width: 320px;
 }
 
-.head {
-    display: inline;
-    margin-left: 30px;
-}
-
-.top-icon {
-    height: 50px;
-    width: 50px;
-    background-color: #4654EB;
-	border-radius: 50%;
-}
-
-span.top-icon {
-    display: inline-block;
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    color: #fff;
-    font-size: 30px;
-}
-
-span.headtext {
-    font-size: 26px;
-    display: table-cell;
-    vertical-align: middle;
-    padding-left: 15px;
-}
-
-.task-top-label {
+.top-bar {
     display: flex;
-    align-items: center;
-    position: relative;
-    top: 53px;
-    font-size: 20px;
-}
-
-.task-top-label input {
-    width: 250px;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    background: transparent;
-    border-bottom: solid black 1px;
-}
-
-.task-top-label .search-icon {
-    position: relative;
-    margin-left: 45px;
-    margin-right: 13px;
-    width: 25px;
-    height: 25px;
-}
-
-.add-task-button {
-    position: relative;
-    left: 1040px;
-}
-
-.menu-item {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    height: 68px;
-    margin-top: 40px;
-    font-size: 25px;
-    border-radius: 18px;
-    transition: .3s;
-    width: 350px;
-}
-
-
-.menu-item:hover {
-    fill: #4654EB;
-    color: #4654EB;
-    /* background: #F3F3FB; */
-}
-
-.menu-item:hover::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-    background-color: #4654EB;
-}
-
-.icon {
-    width: 50px;
-    height: 50px;
-}
-
-.menu-item span {
-    margin-left: 15px;
-}
-
-
-h2.menu-item {
-    text-decoration: underline;
-    border-bottom: 2px;
-}
-
-
-.container, .container_lft {
-    border: 2px solid #dedede;
-    background-color: #FFFFFF;
-    border-radius: 18px;
-    padding: 10px;
-    margin-bottom: 100px;
-    height: 45px;
-    width: 548px;
-    text-align: left;
-}
-
-
-
-#message {
-    position: absolute;
-    left: 45%;
-    padding: 20px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    font-weight: large;
-    border-radius: 10px;
-    box-shadow: 0 0 50px rgba(0, 100, 200,0.4);
-    animation-duration: 1.5s;
-    animation-fill-mode: both;
-    animation-name: mess_anim;
-}
-
-@keyframes mess_anim {
-    0% {
-        opacity: 0;
-        top: -20px;
-    }
-    100%{
-        opacity: 1;
-        top: 20px;
-    }
-}
-
-#task {
-    margin-top: 400px;
-    margin-bottom: 33px;
-    margin-right: 24px;
-    margin-left: 45px;
-    
-    width: 1385px;
-    height: 68px;
-    left: 472px;
-    top: 300px;
-    background-color: #FFFFFF;
-    border-radius: 18px;
-}
-
-#task {
     background-color: #F3F3FB;
-    margin-top: 625px;
+    border-radius: 0 0 24px 24px;
 }
 
-button {
-    outline: none; /* Для синий ободки */
-    border: 0;
-    background: transparent;
-  }
-
-A{
-    color: black;
-    text-decoration: none;
-}
-A:visited {
-    color: black;
-    text-decoration: none;
-}
-A:active {
-    color: black;
-    text-decoration: none;
+.top-bar .logo-details {
+    display: flex;
+    width: 320px;
+    height: 75px;
+    align-items: center;
 }
 
-.top-label {
+.top-bar .logo-details img {
+    height: 45px;
+    width: 45px;
+    margin-left: 35px;
+}
+
+.top-bar .logo-details span {
+    font-size: 26px;
+    margin-left: 20px;
+}
+
+.top-bar .profile-details {
+    position: absolute;
+    left: calc(100% - 250px);
+    display: flex;
+    min-width: 250px;
+    height: 75px;
+    align-items: center;
+}
+
+.profile-details li {
+    display: flex;
+    list-style: none;
+    padding: 1px;
+    border-radius: 10px;
+}
+
+.profile-details a {
     display: flex;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 200px;
-    margin-right: 24px;
-    margin-left: 45px;
-
-    width: 1385px;
-    height: 68px;
-    background-color: #FFFFFF;
-    border-radius: 18px;
+    text-decoration: none;
 }
 
-.chat-label {
-    margin-left: 23px;
-    font-size: 23px
+.profile-details li span {
+    font-size: 24px;
+    margin-left: 10px;
+    color: #000;
+    transition: all .3s ease;
 }
 
-.top-label .circle {
-    margin-left: 19px;
-
+.profile-details li i {
+    font-size: 34px;
+    color: #000;
+    transition: all .3s ease;
 }
 
-
-
-.container p, .container_lft p {
-    font-size: 20px;
-    display: table-cell;
-    padding-top: 5px;
-    vertical-align: 35%;
+.profile-details .profile {
+    margin-left: 50px;
 }
 
-#employees {
-
-    width: 1352px;
-    height: 304px;
-    margin: 100px 50px 50px ;
-    padding-top: 15px;
-
-    background: #4654EB;
-    border-radius: 18px;
-}
-
-#employees2 {
-    width: 1352px;
-    height: 304px;
-    margin: 100px 50px 50px ;
-    padding-top: 15px;
-    background: #FFFFFF;
-    border-radius: 18px;
-}
-
-ul.staff_member {
-    font: 14px "Sen", Arial, sans-serif;
-    overflow: hidden;
-}
-    ul li {
-        list-style-type: none;
-    }
-    ul li.left {
-            width: 10%;
-            float: left;
-    }
-    ul li.right {
-            width: 10%;
-            float: left;
-            text-align: left;
-    }
-    ul li.center {
-            text-align: left;
-    }
-    ul li .content, ul li .content2 {
-        background: #FFFFFF;
-        width: 117px;
-        height: 147px;
-        margin: 20px 40px;
-        display: inline-block;
-        text-align: left;
-        border-radius: 18px;
-    }
-
-    ul li .content2 {
-        background: #F3F3FB;
-    }
-
-.content img, .content2 img {
-    width: 45px;
-    height: 50px;
-    margin-top: 33px;
-    margin-left: 34px;
-}
-
-
-.txt {
-    margin-top: -60px;
-    margin-left: 84px;
-    font-family: "Sen", Arial, sans-serif;
-}
-
-.department, .department2 {
-    color: #FFFFFF;
-    margin: 20px 1048px 5px 54px;
-    font-family: "Sen", Arial, sans-serif;
-}
-.department2 {
-    color: #686868;
-}
-
-.profile, #profile, #profile2, .profile2 {
-    position: absolute;
-    width: 310px;
-    height: 304px;
-    top: 30px;
-    left: 50px;
-
-    background: #FFFFFF;
-    border-radius: 18px;
-}
-
-.profile2 {
-    position: relative;
-    width: 1009px;
-    height: 304px;
-    top: 30px;
-    left: 393px;
-    padding-top: 7px;
-}
-
-#profile, #profile2 {
-    width: 283px;
-    height: 195px;
-    left: 13px;
-    top: 16px;
-
-    background: #F3F3FB;
-}
-
-#profile2 {
-    width: 283px;
-    height: 41px;
-    top: 246px;
-    left: 13px;
-}
-
-.image-stack img {
-    width: 90px;
-    height: 100px;
-    margin-top: 50px;
-    margin-left: 96px;
-    image-rendering: optimizeQuality;
-}
-
-.login {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 30px;
-}
-
-#online {
-    position: absolute;
-    top: 15px;
-    right: 75px;
-}
-
-.profile-description, .profile-description2 {
-    margin-bottom: 0px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-}
-
-.profile-description2{
-
+.profile-details .profile:hover i {
     color: #4654EB;
 }
 
-/*Форма добавления задач*/
-
-.task_headtext {
-    text-align: center;
+.profile-details .profile:hover span {
+    color: #4654EB;
 }
 
-.task_form {
-    position: absolute;
-    left: 42%;
-    top: 24px ;
-    width: 450px;
-    height: 700px;
-    box-shadow: 0 0 30px rgba(0, 0, 0,0.2);
-    padding-right: 3em;
-    padding-left: 3em;
-    padding-top: 1em;
-    padding-bottom: 3em;
-    background: linear-gradient(53deg, #81b7e2,#b3eadd);
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    font-size: 20px;
-    border-radius: 66px;
+.profile-details .log-out i:hover {
+    color: #4654EB;
 }
 
-.task_form_field {
-    width: 95%;
-    height: 35px;
-    padding-left: 15px;
-    border-color: rgba(0,50,100, 0.1);
-    border-style: solid;
-    border-radius: 10px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    font-size: 22px
+.sidebar .nav-links {
+    height: 100%;
+    padding-top: 104px;
 }
 
-.task-form-label {
-  padding-left: 15px;
-  padding-bottom: 10px;
-  display: block;
+.sidebar .nav-links li {
+    position: relative;
+    list-style: none;
+    margin-left: 0px;
+    border-radius: 0 18px 18px 0;
+    transition: all .4s ease;
 }
 
-#task-textarea {
-    width: 95%;
-    height: 300px;
-    padding-left: 15px;
-    resize: none;
-    border-color: rgba(0,50,100, 0.1);
-    border-style: solid;
-    border-radius: 10px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    font-size: 22px
+.sidebar .nav-links li:hover {
+    background-color: #F3F3FB;
 }
 
-.task-back-btn {
-    float: left;
-    font-weight: 700;
-    font-size: 14px;
-    text-align: center;
-    color: #ffffff;
-    width: 100%;
-    height: 35px;
-    cursor: pointer;
-    margin-top: 30px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-}
-
-
-/*Форма авторизации и регистрации*/
-
-.form-label {
-  font-weight: 400;
-  font-size: 13px;
-  padding-left: 15px;
-  padding-bottom: 10px;
-  display: block;
-}
-
-.form-field {
-    width: 95%;
-    height: 35px;
-    padding-left: 15px;
-    border-color: rgba(0,50,100, 0.1);
-    border-style: solid;
-    border-radius: 10px;
-    background: rgb(230, 235, 234);
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    font-size: 18px
-}
-
-.login-check-box {
-    padding-top: 15px
-}
-
-
-ul.links {
-    display: flex;
-}
-
-ul.links li {
-  font-size: 18px;
-  display: inline-block;
-  text-align: center;
-  padding-right: 60px;
-}
-
-.btn {
-    margin-top: -2em;
-    float: left;
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
-    color: #ffffff;
-    width: 100%;
-    height: 35px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 30px;
-    background-color: #4654EB;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-}
-
-.autoriz_section{
-    position: absolute;
-    left: 40%;
-    top: 15% ;
-    width: 350px;
-    height: 630px;
-    box-shadow: 0 0 50px rgba(0, 100, 200,0.4);
-    padding-right: 3em;
-    padding-left: 3em;
-    padding-top: 1em;
-    padding-bottom: 3em;
-    background: #F3F3FB;
-    background: linear-gradient(53deg, #81b7e2,#b3eadd);
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    border-radius: 66px;
-}
-
-.autorization_form{
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.autoriz_headtext {
-    text-align: center;
-}
-
-.autoriz-login {
-    display: inline;
-}
-
-.btn-link {
-    text-decoration: underline;
-    font-size: large;
-}
-
-.links {
-    margin-left: -1.2em;
-}
-
-.login-check-box {
-    padding-top: 15px
-}
-
-#logout {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    text-decoration: underline;
-}
-
-/* ==== Форма для чата ====*/
-
-
-
-#message-input {
-    position: absolute;
-    left: 43px;
-    bottom: 33px;
-    width: 1365px;
-    height: 56px;
-    border: none;
-    border-radius: 18px;
-    padding-left: 20px;
-    font-size: 25px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-    background: #FFFFFF;
-}
-
-
-.card-body {
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 750px;
-    margin-top: -150px;
-    overflow: scroll;
-}
-
-.my-message-container, .other-message-container {
-    display: block;
-    padding: 30px;
-    width: 548px;
-    margin-bottom: -35px;
-    font-family: "Sen", "Rubik", Arial, sans-serif;
-}
-
-.my-message-container {
-    margin-left: auto;
-}
-
-.other-message-container {
-    margin-right: auto;
-}
-
-.my-message-container div {
-    background: linear-gradient(90deg, #81b7e2,#b3eadd);
-}
-
-.other-message-container div {
-    background: linear-gradient(90deg, #81b7e2,#b3eadd);
-}
-
-#typing-indicator {
-    display: flex;
-}
-
-#typing-indicator span {
-    margin-right: 5px;
-}
-
-.dot {
-  position: relative;
-  width: 8px;
-  height: 8px;
-  animation: dots-jumps .6s infinite alternate-reverse;
-}
-
-.dot1 {
-  animation-delay: 0.2s;
-}
-
-.dot2 {
-  animation-delay: 0.3s;
-}
-
-/* @keyframes dots-jumps {
-    0% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-} */
-
-@keyframes dots-jumps {
-    0% {
-        color: rgba(0, 0, 0, 1);
-    }
-    100% {
-        color: rgba(0, 0, 0, 0.25);
-    }
-}
-
-.message-box, .message-box-noauthor {
+.sidebar .nav-links li a {
     display: flex;
     align-items: center;
-    justify-content: left;
-    border-radius: 18px;
-    height: auto;
-    min-height: 45px;
-    background-color: #FFFFFF;
-    margin-top: 5px;
+    text-decoration: none;
 }
 
-.message-box-noauthor {
-    margin-top: -17px;
+.sidebar .nav-links li i {
+    height: 80px;
+    padding-left: 40px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 45px;
+    color: #000;
 }
 
-.username {
-    margin-left: 15px;
+.sidebar .nav-links li span {
+    margin-left: 20px;
+    font-size: 25px;
+    color: #000;
 }
 
-.chat-message {
-    margin: 15px;
-    font-size: 16px;
-}
-
-.timestamp {
-    float: right;
-    margin-top: -20px;
-    margin-right: 15px;
-    font-size: 13px;
+.sidebar .nav-links .log-out {
+    margin-top: 300px;
 }
 
 
-/*Календарь*/
-
-.calendar_panel {
-
-    background-color: #fff;
-    border-radius: 15px;
-    min-height: 100px;
-    margin-left: 43px;
-    margin-right: 59px;
-    margin-top: 57px;
-}
-
-.calendar_month {
-    margin-left: 54;
-    margin-top: 26;
-}
-
-.calendar_year {
-    margin-left: 54;
-    margin-top: 10;
-}

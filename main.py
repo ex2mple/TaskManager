@@ -98,7 +98,7 @@ def handle_disconnect():
     emit('stop-typing', {'username': current_user.login}, broadcast=True)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/tasks', methods=['GET', 'POST'])
 @login_required
 def index():
     tasks_list = Task.query.all()
@@ -127,7 +127,7 @@ def chat():
     )
 
 
-@app.route('/employees', methods=['GET', 'POST'])
+@app.route('/staff', methods=['GET', 'POST'])
 @login_required
 def employees():
     return render_template(
