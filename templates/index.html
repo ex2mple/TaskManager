@@ -4,8 +4,7 @@
 
   <!-- <div class="section_right">
     <div class="task-top-label">
-        <box-icon name='search' class="search-icon"></box-icon>
-        <input type="text" placeholder="Искать задачу"></input>
+      
         <a href={{ url_for("add_task") }} class=" add-task-button">
           <box-icon name='list-plus' class="icon"></box-icon>
         </a>
@@ -23,7 +22,17 @@
       </div>
       {% endfor %}
     </div>
-    
   </div> -->
+
+  <div class="main-zone">
+    <div class="top-label">
+        <i class='bx bx-search' ></i>
+        <input type="text" placeholder="Искать задачу"></input>
+        <a href="add_task" class="add-task">
+          <i class='bx bx-add-to-queue add-task-button'></i>
+        </a>
+        
+    </div>
+  </div>
 
 {% endblock %}

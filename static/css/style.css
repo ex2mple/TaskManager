@@ -5,18 +5,13 @@
     font-family: "Sen", "Rubik", Arial, sans-serif;
 }
 
-.sidebar {
-    position: fixed;
-    top: 75px;
-    left: 0;
-    height: 100%;
-    width: 320px;
-}
-
 .top-bar {
     display: flex;
     background-color: #F3F3FB;
     border-radius: 0 0 24px 24px;
+    min-width: 350px;
+    width: calc(100% - 30px);
+    
 }
 
 .top-bar .logo-details {
@@ -30,18 +25,20 @@
     height: 45px;
     width: 45px;
     margin-left: 35px;
+    transition: all .3s ease;
 }
 
 .top-bar .logo-details span {
     font-size: 26px;
     margin-left: 20px;
+    transition: all .3s ease;
 }
 
 .top-bar .profile-details {
-    position: absolute;
-    left: calc(100% - 250px);
+    position: sticky;
+    left: 100%;
     display: flex;
-    min-width: 250px;
+    min-width: 150px;
     height: 75px;
     align-items: center;
 }
@@ -73,7 +70,8 @@
 }
 
 .profile-details .profile {
-    margin-left: 50px;
+    margin-left: 40px;
+    margin-right: 10px;
 }
 
 .profile-details .profile:hover i {
@@ -88,6 +86,14 @@
     color: #4654EB;
 }
 
+.sidebar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100%;
+    width: 320px;
+}
+
 .sidebar .nav-links {
     height: 100%;
     padding-top: 104px;
@@ -98,12 +104,16 @@
     list-style: none;
     margin-left: 0px;
     border-radius: 0 18px 18px 0;
-    transition: all .4s ease;
 }
 
-.sidebar .nav-links li:hover {
-    background-color: #F3F3FB;
+.sidebar .nav-links li:hover i {
+    color: #4654EB;
 }
+
+.sidebar .nav-links li:hover span {
+    color: #4654EB;
+}
+
 
 .sidebar .nav-links li a {
     display: flex;
@@ -118,16 +128,94 @@
     text-align: center;
     font-size: 45px;
     color: #000;
+    transition: all .3s ease;
 }
 
 .sidebar .nav-links li span {
     margin-left: 20px;
     font-size: 25px;
     color: #000;
+    transition: all .3s ease;
 }
 
-.sidebar .nav-links .log-out {
-    margin-top: 300px;
+/* -----Основная зона----- */
+
+.main-zone {
+    position: fixed;
+    display: flex;
+    width: calc(100% - 350px);
+    height: calc(100% - 150px);
+    min-height: 360px;
+    min-width: 250px;
+    left: 320px;
+    top: 100px;
+    border-radius: 18px;
+    background-color: #F3F3FB;
+    transition: all .3s ease;
+}
+
+.main-zone .top-label {
+    position: absolute;
+    display: flex;
+    width: calc(100% - 50px);
+    align-items: center;
+    left: 30px;
+    top: 30px;
+}
+
+.main-zone .top-label i {
+    font-size: 30px;
+    transition: all .2s ease;
+}
+
+.main-zone .top-label i:hover {
+    color: #4654EB;
+}
+
+.main-zone .top-label a {
+    position: absolute;
+    left: calc(100% - 30px);
+    color: #000;
+    text-decoration: none;
+}
+
+.main-zone .top-label input {
+    border: none;
+    background: transparent;
+    border-bottom: solid black .5px;
+    outline: none;
+    width: 200px;
+    margin-left: 10px;
+    font-size: 20px;
 }
 
 
+
+
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 100px;
+    }
+    .sidebar .nav-links li span {
+        opacity: 0;
+        pointer-events: none;
+    }
+    .sidebar .nav-links li i {
+        padding-left: 20px;
+    }
+    .main-zone {
+        width: calc(100% - 110px);
+        left: 100px;
+    }
+    .top-bar .logo-details span {
+        opacity: 0;
+    }
+    .top-bar .logo-details img {
+        margin-left: 20px;
+    }
+    .profile-details li span {
+        opacity: 0;
+        pointer-events: none;
+        margin-right: -100px;
+    }
+}
