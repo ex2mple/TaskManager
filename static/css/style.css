@@ -6,12 +6,11 @@
 }
 
 .top-bar {
+    position: fixed;
     display: flex;
     background-color: #F3F3FB;
-    border-radius: 0 0 24px 24px;
-    min-width: 350px;
-    width: calc(100% - 30px);
-    
+    min-width: 450px;
+    width: 100%;
 }
 
 .top-bar .logo-details {
@@ -35,12 +34,12 @@
 }
 
 .top-bar .profile-details {
-    position: sticky;
-    left: 100%;
+    position: relative;
+    left: calc(100% - 580px);
     display: flex;
-    min-width: 150px;
     height: 75px;
     align-items: center;
+    transition: all .3s ease;
 }
 
 .profile-details li {
@@ -143,13 +142,13 @@
 .main-zone {
     position: fixed;
     display: flex;
-    width: calc(100% - 350px);
-    height: calc(100% - 150px);
-    min-height: 360px;
+    width: calc(100% - 320px);
+    height: calc(100% - 124px);
+    min-height: 630px;
     min-width: 250px;
     left: 320px;
     top: 100px;
-    border-radius: 18px;
+    border-radius: 60px 0 0 60px;
     background-color: #F3F3FB;
     transition: all .3s ease;
 }
@@ -157,7 +156,8 @@
 .main-zone .top-label {
     position: absolute;
     display: flex;
-    width: calc(100% - 50px);
+    width: 100%;
+    min-width: 350px;
     align-items: center;
     left: 30px;
     top: 30px;
@@ -168,13 +168,13 @@
     transition: all .2s ease;
 }
 
-.main-zone .top-label i:hover {
+.main-zone .top-label a:hover {
     color: #4654EB;
 }
 
 .main-zone .top-label a {
     position: absolute;
-    left: calc(100% - 30px);
+    left: calc(100% - 80px);
     color: #000;
     text-decoration: none;
 }
@@ -186,13 +186,204 @@
     outline: none;
     width: 200px;
     margin-left: 10px;
+    font-size: 18px;
+}
+
+/* -----Таблица задач----- */
+
+.main-zone .task-table {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top: 60px;
+    left: 30px;
+}
+
+.main-zone .task-table tr {
+    display: flex;
+    min-height: 68px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    margin-right: 40px;
+    padding-right: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 18px;
+    font-size: 23px;
+}
+
+.main-zone .task-table tr td {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.main-zone .task-table tr td .task-name {
+    margin-left: 12px;
+}
+
+.main-zone .task-table tr td .circle {
+    background-color: #4654EB;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* -----Добавить задачу----- */
+
+.main-zone .add-task-form {
+    position: absolute;
+    display: flex;
+    width: 400px;
+    height: 550px;
+    left: calc(50% - 300px);
+    top: 50px;
+    border-radius: 18px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    transition: all .3s ease;
+}
+
+.main-zone .add-task-form form {
+    width: 350px;
+    height: 100%;
+    display: inline-block;
+}
+
+.main-zone .add-task-form input {
+    width: 100%;
+    height: 30px;
+    margin-top: 50px;
+}
+.main-zone .add-task-form .task-name {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: #000 solid .5px;
+}
+
+.main-zone .add-task-form #task {
+    resize: none;
+    height: 160px;
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+/* -----Чат----- */
+
+.main-zone .messages-container {
+    position: absolute;
+    width: calc(100% - 50px);
+    height: calc(100% - 190px);
+    top: 80px;
+    left: 30px;
+    padding-bottom: 10px;
+    border-radius: 18px;
+    overflow: auto;
+    /* background-color: red; */
+}
+
+.main-zone .username {
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    font-size: 15px;
+}
+
+.main-zone .timestamp {
+    font-size: 15px;
+    margin-top: 2px;
+}
+
+.main-zone .message {
+    display: flex;
+}
+
+.main-zone .message .message-box {
+    display: inline-grid;
+    position: relative;
+    /* background-color: #fff; */
+    background: linear-gradient(53deg, #81b7e2,#b3eadd);
+    border-radius: 15px;
+    margin-top: 40px;
+    margin-left: 20px;
+    padding: 10px;
+    min-width: 150px;
+    max-width: 450px;
+    min-height: 35px;
     font-size: 20px;
 }
 
+.main-zone .message .noauthor {
+    margin-top: 7px;
+}
 
+.main-zone #message-form {
+    position: absolute;
+    align-self: flex-end;
+    margin-bottom: 33px;
+    left: 30px;
+    width: 90%;
+    /* background-color: red; */
+}
+
+#typing-indicator {
+    position: relative;
+    display: flex;
+    padding-left: 10px;
+    padding-bottom: 3px;
+    /* background-color: red; */
+}
+
+#typing-label {
+    margin-left: 6px;
+}
+
+#typing-indicator .dot {
+    margin-left: 4px;
+    /* transition: all .3s ease; */
+    animation: dots-anim .6s infinite alternate-reverse ease;
+}
+
+#typing-indicator .dot1 {
+    animation: dots-anim .6s infinite alternate-reverse ease .2s;
+}
+
+#typing-indicator .dot2 {
+    animation: dots-anim .6s infinite alternate-reverse ease .4s;
+}
+
+@keyframes dots-anim {
+    form {
+        opacity: 80%;
+    }
+    to {
+        opacity: 20%;
+    }
+}
+
+.main-zone #message-form #message-input {
+    border: none;
+    width: 100%;
+    height: 56px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 18px;
+}
 
 
 @media (max-width: 1000px) {
+    .main-zone {
+        width: calc(100% - 100px);
+        left: 100px;
+    }
+    .main-zone .add-task-form {
+        left: 40px;
+    }
     .sidebar {
         width: 100px;
     }
@@ -201,21 +392,27 @@
         pointer-events: none;
     }
     .sidebar .nav-links li i {
-        padding-left: 20px;
-    }
-    .main-zone {
-        width: calc(100% - 110px);
-        left: 100px;
+        padding-left: 23px;
     }
     .top-bar .logo-details span {
         opacity: 0;
     }
     .top-bar .logo-details img {
-        margin-left: 20px;
+        margin-left: 23px;
     }
-    .profile-details li span {
+    .top-bar .profile-details {
+        left: calc(100% - 450px)
+    }
+    .top-bar .profile-details li span {
         opacity: 0;
         pointer-events: none;
         margin-right: -100px;
     }
-}
+    .main-zone .my-message {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .main-zone .my-message .message-box {
+        background: linear-gradient(233deg, #81b7e2,#b3eadd);
+    }
+} 

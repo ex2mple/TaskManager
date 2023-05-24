@@ -2,28 +2,6 @@
 
 {% block content %}
 
-  <!-- <div class="section_right">
-    <div class="task-top-label">
-      
-        <a href={{ url_for("add_task") }} class=" add-task-button">
-          <box-icon name='list-plus' class="icon"></box-icon>
-        </a>
-    </div>
-    
-    <div class="table">
-      {% for task in tasks %}
-      <div class="outer">
-          <div class="inner-name">
-              <div class="circle"></div>
-              <span class="task-name">{{ task.name }}</span>
-          </div>
-          <div class="inner-text">{{ task.task_text|truncate(60) }}</div>
-          <div class="inner-date">{{ task.deadline }}</div>
-      </div>
-      {% endfor %}
-    </div>
-  </div> -->
-
   <div class="main-zone">
     <div class="top-label">
         <i class='bx bx-search' ></i>
@@ -31,7 +9,22 @@
         <a href="add_task" class="add-task">
           <i class='bx bx-add-to-queue add-task-button'></i>
         </a>
-        
+    </div>
+    <table class="task-table">
+      {% for task in tasks %}
+      <tr>
+        <td>
+          <div class="circle"></div>
+          <span class="task-name">{{ task.name }}</span>
+        </td>
+        <td class="task-text">
+          <div >{{ task.task_text }}</div>
+        </td>
+        <td>
+          <div class="task-deadline">{{ task.deadline }}</div>
+        </td>
+      </tr>
+      {% endfor %}
     </div>
   </div>
 

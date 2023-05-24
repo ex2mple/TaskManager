@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="section_right">
+    <!-- <div class="section_right">
         <div class="top-label">
             <div class="circle"></div>
             <span class="chat-label" >общий чат</span>
@@ -44,6 +44,45 @@
             </form>
             </div>
         </div>
+    </div> -->
+    <div class="main-zone">
+        <div class="top-label">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Искать сообщение"></input>
+        </div>
+        <div class="messages-container">
+            {% for message in messages %}
+            {% if message.author == current_user %}
+            <div class="message my-message">
+            {% else %}
+            <div class="message other-message">
+            {% endif %}
+                {% if loop.first or message.author.login != messages[loop.index0 - 1].author.login %}
+                <div class="message-box">
+                    <span class="username">{{ message.author.login }}</span>
+                {% else %}
+                <div class="message-box noauthor">
+                {% endif %}
+                    <span>{{ message.text }}</span>
+                    <span class="timestamp">{{ message.timestamp.strftime('%H:%M') }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <form id="message-form" action="{{ url_for('chat') }}" method="POST">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <div id="typing-indicator">
+                <span id="typing-users"></span>
+                <span id="typing-label"></span>
+                <div class="dot"></div>
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+            </div>
+            <div class="message-field">
+                {{ form.message(id="message-input", placeholder="Написать сообщение...") }}
+            </div>
+        </form>
     </div>
     <!-- Эти div нужны для передачи значений из Jinja в chat.js -->
     <div id="current_user_login" data-value="{{ current_user.login }}"></div>

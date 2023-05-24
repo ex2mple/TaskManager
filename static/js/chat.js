@@ -1,7 +1,7 @@
 var previousUsername = document.getElementById('previousUsername').getAttribute('data-value');
 var current_user_login = document.getElementById('current_user_login').getAttribute('data-value');
 $(document).ready(function() {
-    $('.card-body').scrollTop($('.card-body')[0].scrollHeight);
+    $('.messages-container').scrollTop($('.messages-container')[0].scrollHeight);
     var socket = io.connect('http://' + document.domain + ':' + location.port);
 
     socket.on('connect', function() {
@@ -42,17 +42,15 @@ $(document).ready(function() {
         if (typing_users_without_me.length == 1) {
             typingUsers = typing_users_without_me.join('');
             typingLabel = ' печатает';
-            dotLabel = '.';
+            dotLabel = '•';
         } else if (typing_users_without_me.length > 1) {
             typingUsers = typing_users_without_me.join(', ');
             typingLabel = ' печатают';
-            dotLabel = '.';
+            dotLabel = '•';
         }
         $('#typing-users').text(typingUsers);
         $('#typing-label').text(typingLabel);
         $('.dot').text(dotLabel);
-
-
 };
 
     inputTextField.oninput = function() {
@@ -84,18 +82,18 @@ $(document).ready(function() {
     socket.on('message', function(data) {
         var date = new Date();
         var formattedTime = date.toLocaleTimeString('ru-RU', { hour: 'numeric', minute: 'numeric' });
-        var messageClass = (data.username === current_user_login) ? 'my-message-container' : 'other-message-container';
-        var boxClass = 'message-box';
+        var messageClass = (data.username === current_user_login) ? 'message my-message' : 'message other-message';
         // Если имя пользователя не совпадает с предыдущим сообщением, то добавляем его в разметку
         if (data.username !== previousUsername) {
             var username = '<span class="username">' + data.username + '</span>';
+            var boxClass = 'message-box';
         } else {
             var username = '';
-            var boxClass = 'message-box-noauthor';
+            var boxClass = 'message-box noauthor';
         }
-        var message = '<div class="' + messageClass + '">' + username + '<div class="' + boxClass + '"><span class="chat-message">' + data.message + '</span></div><span class="timestamp">' + formattedTime + '</span></div>';
-        $('.card-body').append(message);
-        $('.card-body').scrollTop($('.card-body')[0].scrollHeight);
+        var message = '<div class="' + messageClass + '"><div class="' + boxClass + '">' + username + '<span>' + data.message + '</span><span class="timestamp">' + formattedTime + '</span></div></div>';
+        $('.messages-container').append(message);
+        $('.messages-container').scrollTop($('.messages-container')[0].scrollHeight);
 
         previousUsername = data.username;
     });
