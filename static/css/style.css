@@ -101,7 +101,6 @@
 .sidebar .nav-links li {
     position: relative;
     list-style: none;
-    margin-left: 0px;
     border-radius: 0 18px 18px 0;
 }
 
@@ -358,7 +357,7 @@
 }
 
 @keyframes dots-anim {
-    form {
+    from {
         opacity: 80%;
     }
     to {
@@ -373,6 +372,116 @@
     padding: 10px;
     font-size: 20px;
     border-radius: 18px;
+}
+
+
+/* -----Профиль----- */
+
+.main-zone .profile-info {
+    position: absolute;
+    display: flex;
+    left: 50px;
+    top: 30px;
+    width: calc(100% - 100px);
+    height: 310px;
+    min-width: 520px;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.main-zone .profile-info .image {
+    position: relative;
+    display: flex;
+    min-width: 310px;
+    height: 300px;
+    border-radius: 18px;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.main-zone .profile-info .image .user-image {
+    position: relative;
+    width: 280px;
+    height: 190px;
+    background-color: #F3F3FB;
+    border-radius: 18px;
+    top: 16px;
+}
+
+.main-zone .profile-info .image a {
+    position: absolute;
+    display: flex;
+    top: 240px;
+    width: 280px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 25px;
+    border-radius: 18px;
+    background-color: #F3F3FB;
+    color: black
+}
+
+.main-zone .profile-info .description {
+    position: relative;
+    display: inline-block;
+    left: 33px;
+    width: calc(90% - 300px);
+    min-width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 18px;
+    padding-left: 33px;
+    padding-right: 20px;
+}
+
+.main-zone .profile-info .description .main {
+    position: relative;
+    display: inline-block;
+    margin-top: 16px;
+    width: 100%;
+    min-height: 70px;
+    border-bottom: solid black .5px;
+}
+
+.main-zone .profile-info .description .main span {
+    position: relative;
+    display: block;
+}
+.main-zone .profile-info .description .main .name {
+    font-size: 24px;
+}
+.main-zone .profile-info .description .main .mini-description {
+    margin-top: 4px;
+    font-size: 18px;
+}
+.main-zone .profile-info .description .main .status {
+    position: absolute;
+}
+
+.main-zone .profile-info .description .secondary {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 70px;
+}
+
+.main-zone .profile-info .description .secondary ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.main-zone .profile-info .description .secondary ul .label {
+    display: flex;
+    margin-top: 20px;
+}
+
+.main-zone .profile-info .description .secondary ul .data {
+    display: flex;
+    margin-left: 20px;
+    color: #4654EB;
 }
 
 

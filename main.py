@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_socketio import SocketIO, send, emit
+from flask import Flask, render_template, redirect, url_for, flash, session
+from flask_socketio import SocketIO, emit
 from flask_login import LoginManager, current_user, UserMixin, login_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -98,6 +98,7 @@ def handle_disconnect():
     emit('stop-typing', {'username': current_user.login}, broadcast=True)
 
 
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/tasks', methods=['GET', 'POST'])
 @login_required
 def index():
@@ -136,10 +137,18 @@ def employees():
 
 
 @app.route('/profile', methods=['GET', 'POST'])
+@app.route('/profile/<string:user>', methods=['GET', 'POST'])
 @login_required
-def profile():
+def profile(user=None):
+    if user == None:
+        user = current_user
+        status = 'Онлайн'
+    else:
+        user = db.session.query(User).filter(User.login == user).first()
+        status = 'Онлайн' if user.is_active else 'Офлайн'
+    print(user.is_active)
     return render_template(
-        'profile.html', user=current_user
+        'profile.html', user=user, status=status
     )
 
 
