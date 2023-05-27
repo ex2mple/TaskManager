@@ -3,38 +3,38 @@
 {% block content %}
 
 <div class="main-zone">
-    <div class="profile-info">
-        <div class="image">
-            <div class="user-image">
-                <!-- Здесь должна быть ваша ава! -->
-            </div>
-            <a class="edit-btn" href="#">
-                <span>Редактировать</span>
-            </a>
-        </div>
-        <div class="description">
-            <div class="main">
-                <span class="name">{{ user.surname }} {{ user.name }}</span>
-                <span class="mini-description">мини описание</span>
-            </div>
-            <div class="secondary">
-                <ul>
-                    <li>
-                        <span class="label">День рождения: </span>
-                        <span class="data">{{ user.birthday }}</span>
-                    </li>
-                    <li>
-                        <span class="label">Семейное положение: </span>
-                        <span class="data">{{ user.family_status }}</span>
-                    </li>
-                    <li>
-                        <span class="label">Образование: </span>
-                        <span class="data">{{ user.education }}</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div class="profile-info">
+    <div class="image">
+      <div class="user-image">
+        <!-- Здесь должна быть ваша ава! -->
+      </div>
+      <a class="edit-btn" href="#">
+        <span>Редактировать</span>
+      </a>
     </div>
+    <div class="description">
+      <div class="main">
+        <span class="name">{{ user.surname }} {{ user.name }}</span>
+        <span class="mini-description">мини описание</span>
+      </div>
+      <div class="secondary">
+        <ul>
+          <li>
+            <span class="label">День рождения: </span>
+            <span class="data">{{ user.birthday }}</span>
+          </li>
+          <li>
+            <span class="label">Семейное положение: </span>
+            <span class="data">{{ user.family_status }}</span>
+          </li>
+          <li>
+            <span class="label">Образование: </span>
+            <span class="data">{{ user.education }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

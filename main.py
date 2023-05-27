@@ -140,7 +140,7 @@ def employees():
 @app.route('/profile/<string:user>', methods=['GET', 'POST'])
 @login_required
 def profile(user=None):
-    if user == None:
+    if user is None:
         user = current_user
         status = 'Онлайн'
     else:
